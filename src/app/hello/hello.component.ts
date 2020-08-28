@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloComponent implements OnInit {
 
-  constructor() { }
+    name = "name";
+    i = 0;
+    r = Math.random();
+    
 
-  ngOnInit(): void {
-  }
+    constructor() {
+    }
+
+    someTask() {
+        // console.log(`Called ${this.i++} times`);
+    }
+
+    ngOnInit(): void {
+        // setInterval(() => {
+        //     this.r = Math.random();
+        // }, 50);
+    }
 
 }

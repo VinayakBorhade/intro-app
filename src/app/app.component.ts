@@ -45,13 +45,29 @@ function log2(className) {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-@log2
+// @log2
 export class AppComponent {
     title = 'intro-app';
+    myvar = "app";
+    myDisabled = false;
 
     constructor() {
-        console.log("simple method called!");
-        console.log("constructor called ", this.simpleMethod(5));
+        // console.log("simple method called!");
+        // console.log("constructor called ", this.simpleMethod(5));
+        
+        this.myvar = "app";
+        this.myDisabled = false;
+
+        // setInterval(() => {
+        //     this.myvar = Math.random().toString();
+        //     this.myDisabled = Math.random() > 0.5
+        // }, 500);
+
+    }
+
+    clickFunction() {
+        this.myDisabled = !this.myDisabled;
+        console.log("function called!");
     }
 
     @log
