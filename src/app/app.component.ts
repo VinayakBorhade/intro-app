@@ -51,6 +51,10 @@ export class AppComponent {
     myvar = "app";
     myDisabled = false;
 
+    text = "app";
+    text2 = "app";
+    records = [];
+
     constructor() {
         // console.log("simple method called!");
         // console.log("constructor called ", this.simpleMethod(5));
@@ -58,11 +62,50 @@ export class AppComponent {
         this.myvar = "app";
         this.myDisabled = false;
 
+        this.text = "app";
+        this.text2 = "app";
+
+        this.records = [
+            {
+                name: "abc",
+                online: true
+            },
+            {
+                name: "def",
+                online: false
+            },
+            {
+                name: "xyz",
+                online: true
+            },
+            {
+                name: "def",
+                online: false
+            },
+            {
+                name: "xyz",
+                online: true
+            },
+            {
+                name: "def",
+                online: false
+            },
+            {
+                name: "xyz",
+                online: true
+            }
+        ];
+
         // setInterval(() => {
         //     this.myvar = Math.random().toString();
         //     this.myDisabled = Math.random() > 0.5
         // }, 500);
 
+    }
+
+    updateValue(e) {
+        this.text = e.target.value;
+        console.log(e);
     }
 
     clickFunction() {
