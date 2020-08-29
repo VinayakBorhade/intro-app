@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RecordsService } from './records.service';
-import { ThrowStmt } from '@angular/compiler';
+import file_data from './file_data';
 
 function log(target, name, descriptor) {
     console.log("target " , target);
@@ -55,10 +55,14 @@ export class AppComponent {
 
     text1 = "app";
     text2 = "app";
-    records = {};
+    records = []
 
     ngOnInit() {
-        this.records = this.service.getData();
+        this.service.getData()
+        .subscribe(data => {
+            console.log("in app component, Requested data ", data.obj);
+            this.records = data.obj;
+        });
 
         // console.log("records: ", this.records);
     }
@@ -120,7 +124,7 @@ export class AppComponent {
         // this.myDisabled = !this.myDisabled;
         // console.log("function called!");
 
-        this.service.updateData(this.text1, this.text2);
+        // this.service.updateData(this.text1, this.text2);
     }
 
     @log

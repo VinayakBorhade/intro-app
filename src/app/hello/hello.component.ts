@@ -31,7 +31,7 @@ export class HelloComponent implements OnInit {
         //     this.r = Math.random();
         // }, 50);
 
-        this.records = this.service.getData();
+        // this.records = this.service.getData();
     }
 
 

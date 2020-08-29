@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ThrowStmt } from '@angular/compiler';
+import { HttpClient } from '@angular/common/http';
+import file_data from './file_data';
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +9,7 @@ export class RecordsService {
 
     records = [];
 
-    constructor() {
+    constructor(private http: HttpClient) {
         this.records = [
             {
                 name: "abc",
@@ -45,13 +46,16 @@ export class RecordsService {
 
         console.log("getData called");
 
-        return this.records;
+        return this.http.get<file_data>('http://localhost:1234/file.php');
+
+
+        // return this.records;
     }
 
     updateData(key, val) {
-        for(let d of this.records) {
-            if(d.name === key) {
-                if(val === "1") {
+        for (let d of this.records) {
+            if (d.name === key) {
+                if (val === "1") {
                     d.online = true;
                 }
                 else {
@@ -61,3 +65,4 @@ export class RecordsService {
         }
     }
 }
+
