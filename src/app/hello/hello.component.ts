@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecordsService } from '../records.service';
 
 @Component({
   selector: 'app-hello',
@@ -11,18 +12,28 @@ export class HelloComponent implements OnInit {
     i = 0;
     r = Math.random();
     
+    records = [];
 
-    constructor() {
+    constructor(private service: RecordsService) {
     }
 
     someTask() {
         // console.log(`Called ${this.i++} times`);
     }
 
-    ngOnInit(): void {
+    clickFunction() {
+        console.log("updating service data");
+        this.service.updateData("def", "1");
+    }
+
+    ngOnInit() {
         // setInterval(() => {
         //     this.r = Math.random();
         // }, 50);
+
+        this.records = this.service.getData();
     }
+
+
 
 }

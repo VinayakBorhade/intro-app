@@ -7,8 +7,8 @@ Custom comp says <app-hello></app-hello>
 
 <br>
 
-<input type = "text" [value] = "text" (input) = "updateValue($event)" >
-{{text}}
+<input type = "text" [value] = "text1" (input) = "updateValue($event)" >
+{{text1}}
 
 <br>
 
@@ -16,6 +16,8 @@ Using two-way databinding with ng-model <br>
 <input type = "text" [(ngModel)] = "text2" >
 
 {{text2}}
+
+<br> <button (click) = "clickFunction()" >update</button> <br>
 
 
 <br>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RecordsService } from './records.service';
+import { ThrowStmt } from '@angular/compiler';
 
 function log(target, name, descriptor) {
     console.log("target " , target);
@@ -51,50 +53,56 @@ export class AppComponent {
     myvar = "app";
     myDisabled = false;
 
-    text = "app";
+    text1 = "app";
     text2 = "app";
-    records = [];
+    records = {};
 
-    constructor() {
+    ngOnInit() {
+        this.records = this.service.getData();
+
+        // console.log("records: ", this.records);
+    }
+
+    constructor(private service: RecordsService) {
         // console.log("simple method called!");
         // console.log("constructor called ", this.simpleMethod(5));
         
         this.myvar = "app";
         this.myDisabled = false;
 
-        this.text = "app";
+        this.text1 = "app";
         this.text2 = "app";
 
-        this.records = [
-            {
-                name: "abc",
-                online: true
-            },
-            {
-                name: "def",
-                online: false
-            },
-            {
-                name: "xyz",
-                online: true
-            },
-            {
-                name: "def",
-                online: false
-            },
-            {
-                name: "xyz",
-                online: true
-            },
-            {
-                name: "def",
-                online: false
-            },
-            {
-                name: "xyz",
-                online: true
-            }
-        ];
+        // this.records = [
+        //     {
+        //         name: "abc",
+        //         online: true
+        //     },
+        //     {
+        //         name: "def",
+        //         online: false
+        //     },
+        //     {
+        //         name: "xyz",
+        //         online: true
+        //     },
+        //     {
+        //         name: "def",
+        //         online: false
+        //     },
+        //     {
+        //         name: "xyz",
+        //         online: true
+        //     },
+        //     {
+        //         name: "def",
+        //         online: false
+        //     },
+        //     {
+        //         name: "xyz",
+        //         online: true
+        //     }
+        // ];
 
         // setInterval(() => {
         //     this.myvar = Math.random().toString();
@@ -104,13 +112,15 @@ export class AppComponent {
     }
 
     updateValue(e) {
-        this.text = e.target.value;
+        this.text1 = e.target.value;
         console.log(e);
     }
 
     clickFunction() {
-        this.myDisabled = !this.myDisabled;
-        console.log("function called!");
+        // this.myDisabled = !this.myDisabled;
+        // console.log("function called!");
+
+        this.service.updateData(this.text1, this.text2);
     }
 
     @log
