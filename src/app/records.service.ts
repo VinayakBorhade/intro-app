@@ -46,7 +46,7 @@ export class RecordsService {
 
         console.log("getData called");
 
-        return this.http.get<file_data>('http://localhost:1234/file.php');
+        return this.http.get<file_data>('/api/file.php');
 
 
         // return this.records;
