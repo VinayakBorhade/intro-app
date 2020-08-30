@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { RecordsService } from './records.service';
-import file_data from './file_data';
 
 function log(target, name, descriptor) {
     console.log("target " , target);
@@ -55,19 +53,8 @@ export class AppComponent {
 
     text1 = "app";
     text2 = "app";
-    records = []
 
-    ngOnInit() {
-        this.service.getData()
-        .subscribe(data => {
-            console.log("in app component, Requested data ", data.obj);
-            this.records = data.obj;
-        });
-
-        // console.log("records: ", this.records);
-    }
-
-    constructor(private service: RecordsService) {
+    constructor() {
         // console.log("simple method called!");
         // console.log("constructor called ", this.simpleMethod(5));
         

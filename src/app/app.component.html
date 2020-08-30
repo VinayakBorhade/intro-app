@@ -1,9 +1,11 @@
-Hello world!
+<router-outlet></router-outlet>
+
+<!-- Hello world!
 Custom comp says <app-hello></app-hello>
 
-<!-- <input type = "text" value = "{{myvar}}" [disabled] = "myDisabled" > 
+ <input type = "text" value = "{{myvar}}" [disabled] = "myDisabled" > 
 
-<button (click) = "clickFunction()" >Click me</button> -->
+<button (click) = "clickFunction()" >Click me</button> 
 
 <br>
 
@@ -21,18 +23,4 @@ Using two-way databinding with ng-model <br>
 
 
 <br>
-
-<table>
-    <tr>
-        <td>S No.</td>
-        <td>Name</td>
-        <td>Is online? </td>
-    </tr>
-    <tr *ngFor = "let record of records; let idx = index; let evenIdx = even;
-        let oddIdx = odd; let firstIdx = first; let lastIdx = last "
-        [ngClass] = "{odd: oddIdx, even: evenIdx, first: firstIdx, last: lastIdx }">
-        <td>{{idx + 1}}</td>
-        <td>{{record.name}}</td>
-        <td>{{record.online}}</td>
-    </tr>
-</table>
+-->
