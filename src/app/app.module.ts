@@ -14,42 +14,43 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { UserService } from './user.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HelloComponent,
-    HomeComponent,
-    DataComponent,
-    LoginComponent,
-    AdminComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule, 
-    FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-        {
-            path: 'data',   // localhost:4200/data
-            component: DataComponent
-        },
-        {
-            path: 'login',
-            component: LoginComponent
-        },
-        {
-            path: 'admin',
-            component: AdminComponent,
-            canActivate: [AuthGuard]
-        },
-        {
-            path: '',
-            component: HomeComponent
-        },
-    ]),
-  ], 
-  providers: [RecordsService, AuthService, AuthGuard],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HelloComponent,
+        HomeComponent,
+        DataComponent,
+        LoginComponent,
+        AdminComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule, 
+        FormsModule,
+        HttpClientModule,
+        RouterModule.forRoot([
+            {
+                path: 'data',   // localhost:4200/data
+                component: DataComponent
+            },
+            {
+                path: 'login',
+                component: LoginComponent
+            },
+            {
+                path: 'admin',
+                component: AdminComponent,
+                canActivate: [AuthGuard]
+            },
+            {
+                path: '',
+                component: HomeComponent
+            },
+        ]),
+    ], 
+    providers: [RecordsService, AuthService, AuthGuard, UserService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
