@@ -11,5 +11,10 @@ export class UserService {
     getSomeData() {
         return this.http.get('/api/database.php');
     }
+
+    isLoggedIn() {
+        // console.log("inside isLoggedIn()");
+        return this.http.get('/api/isloggedin.php');
+    }
     
 }
