@@ -28,4 +28,11 @@ export class AuthService {
             password
         });
     }
+
+    registerUser(username, password) {
+        return this.http.post('/api/register', {
+            username,
+            password
+        });
+    }
 }

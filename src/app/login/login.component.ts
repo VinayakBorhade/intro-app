@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
             
             if(data.res.success) {
                 // redirect to /admin page
-                this.router.navigate(['admin']);
+                this.router.navigate(['dashboard']);
                 this.auth.setLoggedIn(true);
             }
             else {
