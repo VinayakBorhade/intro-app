@@ -1,2 +1,2 @@
 # ng serve --open
-npm start
+npm start && cd test && php -S localhost:1234
