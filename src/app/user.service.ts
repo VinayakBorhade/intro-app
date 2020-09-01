@@ -16,5 +16,9 @@ export class UserService {
         // console.log("inside isLoggedIn()");
         return this.http.get('/api/isloggedin.php');
     }
+
+    logout() {
+        return this.http.get('/api/logout.php');
+    }
     
 }

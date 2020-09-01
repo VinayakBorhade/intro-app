@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
             return true;
         }
 
-        // console.log("before calling isloggedin");
+        console.log("inside auth guard, before calling isloggedin");
         // user might be still logged in
         return this.user.isLoggedIn().pipe(map((res: any) => {
             if(res.status) {
