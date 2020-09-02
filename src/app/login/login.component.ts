@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
     selector: 'app-login',
@@ -20,9 +22,14 @@ export class LoginComponent implements OnInit {
         const username = target.querySelector('#username').value;
         const password = target.querySelector('#password').value;
 
-        this.auth.getUserDetails(username, password).subscribe((data : any) => {
+        this.auth.getUserDetails(username, password)
+        .pipe(
+            catchError((err) => of(err))
+        )
+        .subscribe((data : any) => {
             
             console.log("data from server ", data);
+            console.log("success ", data.success, " message ", data.message);
             
             if(data.success) {
                 // redirect to /admin page
@@ -31,7 +38,7 @@ export class LoginComponent implements OnInit {
             }
             else {
                 window.alert("login error, try again check creds!");
-                console.log("error ", data.error.message);
+                console.log("error ", data);
             }
         });
         console.log(username, password);

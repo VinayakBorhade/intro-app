@@ -14,11 +14,11 @@ export class UserService {
 
     isLoggedIn() {
         // console.log("inside isLoggedIn()");
-        return this.http.get('/api/isloggedin.php');
+        return this.http.get('/api/isloggedin');
     }
 
     logout() {
-        return this.http.get('/api/logout.php');
+        return this.http.get('/api/logout');
     }
     
 }
