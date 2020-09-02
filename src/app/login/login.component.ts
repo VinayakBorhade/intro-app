@@ -24,13 +24,14 @@ export class LoginComponent implements OnInit {
             
             console.log("data from server ", data);
             
-            if(data.res.success) {
+            if(data.success) {
                 // redirect to /admin page
                 this.router.navigate(['dashboard']);
                 this.auth.setLoggedIn(true);
             }
             else {
-                window.alert(data.res.message);
+                window.alert("login error, try again check creds!");
+                console.log("error ", data.error.message);
             }
         });
         console.log(username, password);

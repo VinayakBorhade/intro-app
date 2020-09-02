@@ -23,7 +23,7 @@ export class AuthService {
 
     getUserDetails(username, password) {
         // post these details to API server return user info if correct
-        return this.http.post('/api/auth.php', {
+        return this.http.post('/api/login', {
             username,
             password
         });

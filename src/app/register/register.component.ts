@@ -28,11 +28,16 @@ export class RegisterComponent implements OnInit {
 
         // validation
 
-        if(errors.length > 0) {
+        if(errors.length === 0) {
              this.auth.registerUser(username, password).subscribe((data: any) => {
                 console.log(data);
                 if(data.success) {
+                    window.alert('User registered successfully!');
                     this.router.navigate(['dashboard']);
+                }
+                else {
+                    window.alert('Error in Registeration, try again');
+                    console.log("error message", data.error.message);
                 }
             });
         }
