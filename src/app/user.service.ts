@@ -9,7 +9,7 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     getSomeData() {
-        return this.http.get('/api/database.php');
+        return this.http.get('/api/data');
     }
 
     isLoggedIn() {
@@ -18,7 +18,7 @@ export class UserService {
     }
 
     logout() {
-        return this.http.get('/api/logout');
+        return this.http.post('/api/logout', {});
     }
     
 }
