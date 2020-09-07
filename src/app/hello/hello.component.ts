@@ -14,7 +14,23 @@ export class HelloComponent implements OnInit {
     
     records = [];
 
+    condition_var = false;
+
+    data = [
+        {
+            lang: "javascript",
+            usedOn: "web"
+        },
+        {
+            lang: "swift",
+            usedOn: "iOS"
+        },
+    ];
+
     constructor(private service: RecordsService) {
+        setInterval(() => {
+            this.condition_var = !this.condition_var;
+        }, 1000);
     }
 
     someTask() {

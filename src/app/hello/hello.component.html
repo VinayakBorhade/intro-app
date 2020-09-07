@@ -6,4 +6,26 @@
 
 <br>
 
+<div *ngIf = "condition_var; then block1 else block2"></div>
+
+<ng-template #block1>
+    <h1>YES!!</h1>
+</ng-template>
+<ng-template #block2>
+    <h1>NO!!</h1>
+</ng-template>
+
+<ul>
+    <li *ngFor = "let info of data">
+        <span [ngClass] = "{
+            'javascript': info.lang === 'javascript',
+            'swift': info.lang === 'swift'
+        }">
+            {{info.lang}} is mostly used on {{info.usedOn}}
+        </span>
+    </li>
+</ul>
+
+<p>Normal para</p>
+<p appRedblack >Custom directive para</p>
 <!-- {{someTask()}} -->

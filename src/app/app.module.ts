@@ -18,6 +18,7 @@ import { UserService } from './user.service';
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
+import { RedblackDirective } from './redblack.directive';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { RegisterComponent } from './register/register.component';
         AdminComponent,
         LogoutComponent,
         DashboardComponent,
-        RegisterComponent
+        RegisterComponent,
+        RedblackDirective
     ],
     imports: [
         BrowserModule,
@@ -62,6 +64,10 @@ import { RegisterComponent } from './register/register.component';
             {
                 path: 'logout',
                 component: LogoutComponent
+            },
+            {
+                path: 'hello',
+                component: HelloComponent
             },
             {
                 path: '',
